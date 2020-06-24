@@ -27,14 +27,14 @@ class BookAdapter(private val mModels: MutableList<Book?>?) : RecyclerView.Adapt
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
         val model = mModels!![position]
 
-        holder.apply { holder
-            holder.setTvBookId(model!!.id.toString())
-            holder.setTvBookTitle(model.title)
-            holder.setTvBookAuthor(model.author)
-            holder.setTvBookPage(model.pages)
-            holder.itemView.setOnClickListener {
+        holder.apply {
+            setTvBookId(model!!.id.toString())
+            setTvBookTitle(model.title)
+            setTvBookAuthor(model.author)
+            setTvBookPage(model.pages)
+            itemView.setOnClickListener {
                 if (mOnItemClickListener != null) {
-                    if (holder.adapterPosition != RecyclerView.NO_POSITION) {
+                    if (adapterPosition != RecyclerView.NO_POSITION) {
                         mOnItemClickListener!!.onItemClick(position)
                     }
                 }

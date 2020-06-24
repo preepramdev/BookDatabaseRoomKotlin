@@ -6,7 +6,7 @@ import com.pram.bookapiretrofit.manager.Contextor.Companion.instance
 import com.pram.bookdatabaseroomkotlin.model.Book
 
 class BookDatabaseController {
-
+    private val TAG = "BookDatabaseController"
     private val mContext: Context?
     private var databaseManager: BookDao? = null
     private val emptyResult = Any()
@@ -16,16 +16,12 @@ class BookDatabaseController {
         databaseManager = BookManager.instance!!.bookDatabase!!.bookDao()
     }
 
-    companion object {
-        private const val TAG = "BookDatabaseController"
-    }
-
     fun getAllBooks(callBack: BookDatabaseCallBack) {
         val thread: Thread = object : Thread() {
             override fun run() {
                 super.run()
                 val books = databaseManager!!.allBooks
-                for (book in books!!) {
+                books!!.forEach { book ->
                     Log.e(TAG, "-->")
                     Log.e(TAG, "fetchDatabase bookId: " + book!!.id)
                     Log.e(TAG, "fetchDatabase bookTitle: " + book.title)

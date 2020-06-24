@@ -20,16 +20,16 @@ data class Book(
     @ColumnInfo(name = "pages")
     var pages: String
 ) : Parcelable {
+    constructor(title: String,
+                author: String,
+                pages: String) : this(0, title, author, pages)
+
     constructor(parcel: Parcel) : this(
         parcel.readInt(),
         parcel.readString()!!,
         parcel.readString()!!,
         parcel.readString()!!) {
     }
-
-    constructor(title: String,
-                author: String,
-                pages: String) : this(0, title, author, pages)
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeInt(id)
