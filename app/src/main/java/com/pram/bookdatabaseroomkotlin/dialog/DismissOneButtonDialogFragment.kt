@@ -44,12 +44,16 @@ class DismissOneButtonDialogFragment : DialogFragment() {
     }
 
     private fun setupView() {
-        tvMessage!!.text = message
-        btnSubmit!!.text = submit
-        btnSubmit!!.setOnClickListener { v: View? ->
-            val listener = onDialogListener
-            listener?.onDismissOneButtonClick()
-            dismiss()
+        tvMessage!!.apply {
+            text = message
+        }
+        btnSubmit!!.apply {
+            text = submit
+            setOnClickListener {
+                val listener = onDialogListener
+                listener?.onDismissOneButtonClick()
+                dismiss()
+            }
         }
     }
 

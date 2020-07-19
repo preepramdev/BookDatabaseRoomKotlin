@@ -48,18 +48,24 @@ class DismissTwoButtonDialogFragment : DialogFragment() {
     }
 
     private fun setupView() {
-        tvMessage!!.text = message
-        btnPositive!!.text = positive
-        btnNegative!!.text = negative
-        btnPositive!!.setOnClickListener { v: View? ->
-            val listener = onDialogListener
-            listener?.onDismissTwoButtonPositiveClick()
-            dismiss()
+        tvMessage!!.apply {
+            text = message
         }
-        btnNegative!!.setOnClickListener { v: View? ->
-            val listener = onDialogListener
-            listener?.onDismissTwoButtonNegativeClick()
-            dismiss()
+        btnPositive!!.apply {
+            text = positive
+            setOnClickListener {
+                val listener = onDialogListener
+                listener?.onDismissTwoButtonPositiveClick()
+                dismiss()
+            }
+        }
+        btnNegative!!.apply {
+            text = negative
+            setOnClickListener {
+                val listener = onDialogListener
+                listener?.onDismissTwoButtonNegativeClick()
+                dismiss()
+            }
         }
     }
 

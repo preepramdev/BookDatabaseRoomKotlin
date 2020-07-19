@@ -87,10 +87,12 @@ class DetailFragment : Fragment(), OneButtonDialogFragment.OnDialogListener, Two
                     val author: String = mBook!!.author
                     val page: String = mBook!!.pages
 
-                    mRootView!!.tvBookId!!.text = id
-                    mRootView!!.tvBookTitle!!.text = title
-                    mRootView!!.tvBookAuthor!!.text = author
-                    mRootView!!.tvBookPages!!.text = page
+                    mRootView!!.apply {
+                        tvBookId!!.text = id
+                        tvBookTitle!!.text = title
+                        tvBookAuthor!!.text = author
+                        tvBookPages!!.text = page
+                    }
                 }
             }
 

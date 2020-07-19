@@ -16,7 +16,9 @@ class Contextor private constructor() {
         @JvmStatic
         var instance: Contextor? = null
             get() {
-                if (field == null) field = Contextor()
+                if (field == null) {
+                    field = Contextor()
+                }
                 return field
             }
     }

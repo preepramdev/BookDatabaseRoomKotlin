@@ -17,8 +17,9 @@ class BookManager private constructor() {
     companion object {
         var instance: BookManager? = null
             get() {
-                if (field == null) field =
-                    BookManager()
+                if (field == null) {
+                    field = BookManager()
+                }
                 return field
             }
             private set

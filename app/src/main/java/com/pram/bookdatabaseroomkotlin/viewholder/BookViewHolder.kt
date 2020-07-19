@@ -19,18 +19,26 @@ class BookViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     }
 
     fun setTvBookId(bookId: String?) {
-        tvBookId.text = bookId
+        tvBookId.apply {
+            text = bookId
+        }
     }
 
     fun setTvBookTitle(bookTitle: String?) {
-        tvBookTitle.text = bookTitle
+        tvBookTitle.apply {
+            text = bookTitle
+        }
     }
 
     fun setTvBookAuthor(bookAuthor: String?) {
-        tvBookAuthor.text = bookAuthor
+        tvBookAuthor.apply {
+            text = bookAuthor
+        }
     }
 
     fun setTvBookPage(bookPage: String?) {
-        tvBookPage.text = bookPage
+        tvBookPage.apply {
+            text = bookPage
+        }
     }
 }

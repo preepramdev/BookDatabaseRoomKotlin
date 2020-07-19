@@ -57,22 +57,45 @@ class UpdateFragment : Fragment(), OneButtonDialogFragment.OnDialogListener, Two
             mBook = arguments!!.getParcelable("book")
         }
 
-        if (mBook != null) {
-            val id = mBook!!.id.toString()
-            val title = mBook!!.title
-            val author = mBook!!.author
-            val pages = mBook!!.pages
+        mRootView!!.apply {
+            var id = ""
+            var title = ""
+            var author = ""
+            var pages = ""
 
-            mRootView!!.tvBookId!!.text = id
-            mRootView!!.edtBookTitle!!.setText(title)
-            mRootView!!.edtBookAuthor!!.setText(author)
-            mRootView!!.edtBookPages!!.setText(pages)
-        }
-        mRootView!!.btnUpdate!!.setOnClickListener {
-            updateBook()
-        }
-        mRootView!!.btnCancel!!.setOnClickListener {
-            callTwoButtonDialog("Leave?", "Ok", "Cancel")
+            if (mBook != null) {
+                id = mBook!!.id.toString()
+                title = mBook!!.title
+                author = mBook!!.author
+                pages = mBook!!.pages
+            }
+
+            tvBookId!!.apply {
+                text = id
+            }
+
+            edtBookTitle!!.apply {
+                setText(title)
+            }
+
+            edtBookAuthor!!.apply {
+                setText(author)
+            }
+
+            edtBookPages!!.apply {
+                setText(pages)
+            }
+
+            btnUpdate!!.apply {
+                setOnClickListener {
+                    updateBook()
+                }
+            }
+            btnCancel!!.apply {
+                setOnClickListener {
+                    callTwoButtonDialog("Leave?", "Ok", "Cancel")
+                }
+            }
         }
     }
 
